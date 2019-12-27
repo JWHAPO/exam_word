@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:exam/main.dart';
 
 class ResultPage extends StatelessWidget {
-  final int point;
-  final int total;
+  final Map<String,int> data;
 
-  ResultPage(this.point, this.total);
+  ResultPage({@required this.data});
 
   @override
   Widget build(BuildContext context) {
-    int result = ((point / total) * 100).toInt();
+    int result = ((data['point'] / data['total']) * 100).toInt();
 
     String text1;
     String text2;

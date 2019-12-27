@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:exam/result.dart';
+import 'package:exam/util/route.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,11 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Router.generateRoute,
       title: '다정스쿨',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: '다정스쿨'),
+      initialRoute: 'main',
     );
   }
 }
@@ -27,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
-  final int changeTime = 1000;
+  final int changeTime = 3000;
   bool isStart = false;
   bool isEnd = false;
   String stage = '';
@@ -74,11 +76,22 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       setState(() {
         int tempIndex = index ~/2;
         if(tempIndex >= words.length) {
+
+          if(index%2 ==0){
+            addPoint(tempIndex);
+            _answerController.text = '';
+          }
+
           index = 0;
           tempIndex = index ~/2;
           isEnd = true;
           isStart = false;
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>ResultPage(point, words.length)));
+
+          Map<String, int> map = new Map();
+          map['point'] = point;
+          map['total'] = words.length;
+
+          Navigator.pushReplacementNamed(context, 'result',arguments: map);
 
         }else{
           stage = '${tempIndex+1} / ${words.length}';
