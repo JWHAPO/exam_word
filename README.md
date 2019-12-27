@@ -1,6 +1,6 @@
 # exam
 
-Word Test
+Word Test - 학원 운영하는 친구를 위해서 만든 토이 프로젝트
 
 ## Getting Started
 
