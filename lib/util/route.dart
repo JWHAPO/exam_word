@@ -3,15 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:exam/main.dart';
 import 'package:exam/result.dart';
+import 'package:exam/util/const.dart';
 
 
 class Router{
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
       case '/':
-        return FadeRoute(page: MyHomePage());
+        return FadeRoute(page: MyHomePage(title: '${Const.APP_NAME}',));
       case 'main':
-        return FadeRoute(page: MyHomePage());
+        return FadeRoute(page: MyHomePage(title: '${Const.APP_NAME}'));
       case 'result':
         if (settings.arguments is Map) {
           return FadeRoute(page: ResultPage(data: settings.arguments));

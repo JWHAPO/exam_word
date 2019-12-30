@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:exam/util/route.dart';
+import 'package:exam/util/const.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Router.generateRoute,
-      title: '다정스쿨',
+      title: '${Const.APP_NAME}',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,9 +30,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
-  final int changeTime = 3000;
+  final int changeTime = 1000;
   bool isStart = false;
-  bool isEnd = false;
   String stage = '';
   String word='';
   double duration = 0.0;
@@ -56,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   void firstStart(){
     setState(() {
       isStart = true;
-      isEnd = false;
       int tempIndex = index ~/2;
       if(tempIndex >= words.length) {
         index = 0;
@@ -75,33 +74,20 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     Future.delayed(Duration(milliseconds: changeTime), () {
       setState(() {
         int tempIndex = index ~/2;
+
+        if(index%2 ==0){
+          addPoint(tempIndex);
+          _answerController.text = '';
+        }
+
         if(tempIndex >= words.length) {
-
-          if(index%2 ==0){
-            addPoint(tempIndex);
-            _answerController.text = '';
-          }
-
           index = 0;
-          tempIndex = index ~/2;
-          isEnd = true;
           isStart = false;
 
-          Map<String, int> map = new Map();
-          map['point'] = point;
-          map['total'] = words.length;
-
-          Navigator.pushReplacementNamed(context, 'result',arguments: map);
-
+          moveDetail();
         }else{
           stage = '${tempIndex+1} / ${words.length}';
           word = words[tempIndex];
-
-          if(index%2 ==0){
-            addPoint(tempIndex);
-            _answerController.text = '';
-          }
-
           duration = duration==1.0?0.0:1.0;
           index ++;
           changeWord();
@@ -110,11 +96,16 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     });
   }
 
+  void moveDetail(){
+    Map<String, int> map = new Map();
+    map['point'] = point;
+    map['total'] = words.length;
+
+    Navigator.pushReplacementNamed(context, 'result',arguments: map);
+  }
+
   void addPoint(int index){
-    if(answers[index-1].contains(_answerController.value.text.trim())){
-      point++;
-    }
-    print('point$point');
+    if(answers[index-1].contains(_answerController.value.text.trim())) point++;
   }
 
   @override
@@ -125,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('다정스쿨'),
+          title: Text(widget.title),
         ),
         body: Container(
           width: MediaQuery.of(context).size.width,

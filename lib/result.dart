@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:exam/main.dart';
+import 'package:exam/util/const.dart';
 
 class ResultPage extends StatelessWidget {
   final Map<String,int> data;
@@ -54,7 +55,7 @@ class ResultPage extends StatelessWidget {
                           borderRadius: new BorderRadius.circular(18.0),
                           side: BorderSide(color: Colors.black87)),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>MyHomePage()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>MyHomePage(title: '${Const.APP_NAME}',)));
                       },
                       color: Colors.white,
                       textColor: Colors.black87,
