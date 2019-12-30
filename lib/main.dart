@@ -118,6 +118,31 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         appBar: AppBar(
           title: Text(widget.title),
         ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text('Header'),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).accentColor
+                ),
+              ),
+              ListTile(
+                title: Text('Item 1'),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('Item 2'),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        ),
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
