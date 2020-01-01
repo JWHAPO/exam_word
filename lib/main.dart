@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:exam/util/route.dart';
 import 'package:exam/util/const.dart';
+import 'package:exam/util/mytheme.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,10 +14,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Router.generateRoute,
       title: '${Const.APP_NAME}',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: 'main',
+      theme: MyTheme.getThemeFromKey(MyThemeKeys.LIGHT),
+      initialRoute: 'login',
     );
   }
 }

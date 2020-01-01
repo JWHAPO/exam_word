@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:exam/main.dart';
 import 'package:exam/result.dart';
 import 'package:exam/util/const.dart';
+import 'package:exam/ui/login.dart';
 
 
 class Router{
@@ -13,6 +14,8 @@ class Router{
         return FadeRoute(page: MyHomePage(title: '${Const.APP_NAME}',));
       case 'main':
         return FadeRoute(page: MyHomePage(title: '${Const.APP_NAME}'));
+      case 'login':
+        return FadeRoute(page: LoginPage());
       case 'result':
         if (settings.arguments is Map) {
           return FadeRoute(page: ResultPage(data: settings.arguments));

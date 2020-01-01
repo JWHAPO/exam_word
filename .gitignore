@@ -24,8 +24,6 @@ release/
 .gradle/
 build/
 
-#image
-assets/img/
 
 # Local configuration file (sdk path, etc)
 local.properties
