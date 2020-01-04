@@ -5,6 +5,7 @@ import 'package:exam/main.dart';
 import 'package:exam/result.dart';
 import 'package:exam/util/const.dart';
 import 'package:exam/ui/login.dart';
+import 'package:exam/ui/signup.dart';
 
 
 class Router{
@@ -16,6 +17,8 @@ class Router{
         return FadeRoute(page: MyHomePage(title: '${Const.APP_NAME}'));
       case 'login':
         return FadeRoute(page: LoginPage());
+      case 'signup':
+        return FadeRoute(page: SignUpPage());
       case 'result':
         if (settings.arguments is Map) {
           return FadeRoute(page: ResultPage(data: settings.arguments));

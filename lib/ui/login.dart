@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: RaisedButton(
                   onPressed: (){
-
+                    Navigator.pushReplacementNamed(context, 'signup');
                   },
                   color: Theme.of(context).accentColor,
                   child: Text('회원가입', style: TextStyle(fontFamily: 'NanumGothic-ExtraBold', fontSize: 14.0, color: Colors.white), ),
