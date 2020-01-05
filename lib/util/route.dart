@@ -6,6 +6,7 @@ import 'package:exam/result.dart';
 import 'package:exam/util/const.dart';
 import 'package:exam/ui/login.dart';
 import 'package:exam/ui/signup.dart';
+import 'package:exam/ui/splash.dart';
 
 
 class Router{
@@ -19,6 +20,8 @@ class Router{
         return FadeRoute(page: LoginPage());
       case 'signup':
         return FadeRoute(page: SignUpPage());
+      case 'splash':
+        return FadeRoute(page: SplashPage());
       case 'result':
         if (settings.arguments is Map) {
           return FadeRoute(page: ResultPage(data: settings.arguments));

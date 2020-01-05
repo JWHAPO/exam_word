@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: Router.generateRoute,
       title: '${Const.APP_NAME}',
       theme: MyTheme.getThemeFromKey(MyThemeKeys.LIGHT),
-      initialRoute: 'login',
+      initialRoute: 'splash',
     );
   }
 }
