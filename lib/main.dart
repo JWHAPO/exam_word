@@ -48,21 +48,21 @@ class _MyHomePageState extends State<MyHomePage>{
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                child: Text('Header'),
+                child: Text('Header', style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),),
                 decoration: BoxDecoration(
                   color: Theme.of(context).accentColor
                 ),
               ),
               ListTile(
-                title: Text('Item 1'),
+                title: Text('Item 1', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
                 onTap: (){
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                title: Text('Item 2'),
+                title: Text('단어테스트', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
                 onTap: (){
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, 'exam');
                 },
               )
             ],
