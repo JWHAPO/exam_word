@@ -4,13 +4,13 @@ part 'note.g.dart';
 
 @JsonSerializable()
 class Note{
-  String id;
+  int noteId;
   DateTime regDate;
   String title;
   String contents;
   String isChecked;
 
-  Note(this.id, this.regDate, this.title, this.contents, this.isChecked);
+  Note(this.noteId, this.regDate, this.title, this.contents, this.isChecked);
 
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
   Map<String, dynamic> toJson() => _$NoteToJson(this);
