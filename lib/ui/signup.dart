@@ -99,6 +99,20 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 5.0,),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: RaisedButton(
+                    onPressed: (){
+                      Navigator.pushReplacementNamed(context, 'login');
+                    },
+                    color: Theme.of(context).accentColor,
+                    child: Text('로그인', style: TextStyle(fontFamily: 'NanumGothic-ExtraBold', fontSize: 14.0, color: Colors.white), ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20.0), topLeft: Radius.circular(20.0))
+                    ),
+                  ),
+                ),
               ],
             ),
             //ID
