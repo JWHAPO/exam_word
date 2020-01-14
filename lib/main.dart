@@ -3,6 +3,7 @@ import 'package:exam/util/route.dart';
 import 'package:exam/util/const.dart';
 import 'package:exam/util/mytheme.dart';
 import 'package:exam/ui/note.dart';
+import 'package:exam/ui/notice.dart';
 
 void main() => runApp(MyApp());
 
@@ -111,6 +112,15 @@ class _MyHomePageState extends State<MyHomePage>{
                 onTap: (){
                   setState(() {
                     body = NotePage();
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('공지사항', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                onTap: (){
+                  setState(() {
+                    body = NoticePage();
                   });
                   Navigator.pop(context);
                 },
