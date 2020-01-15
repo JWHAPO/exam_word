@@ -86,7 +86,36 @@ class _MyHomePageState extends State<MyHomePage>{
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                child: Text('Header', style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 100.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff7c94b6),
+                        image: DecorationImage(
+                          image: AssetImage('assets/img/profile.png'),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.all(new Radius.circular(50.0)),
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 30.0,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text('A반'),
+                        Text('손지환'),
+                      ],
+                    )
+                  ],
+                ),
                 decoration: BoxDecoration(
                   color: Theme.of(context).accentColor
                 ),
