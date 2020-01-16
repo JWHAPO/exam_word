@@ -122,6 +122,7 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
               ListTile(
                 title: Text('메인', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.home),
                 onTap: (){
                   setState(() {
                     body = homeBody();
@@ -131,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
               ListTile(
                 title: Text('금 주의 단어퀴즈', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.note),
                 onTap: (){
                   Navigator.pop(context);
                   Navigator.pushNamed(context, 'exam');
@@ -138,6 +140,7 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
               ListTile(
                 title: Text('알림장', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.create),
                 onTap: (){
                   setState(() {
                     body = NotePage();
@@ -147,6 +150,7 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
               ListTile(
                 title: Text('공지사항', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.notifications_none),
                 onTap: (){
                   setState(() {
                     body = NoticePage();
