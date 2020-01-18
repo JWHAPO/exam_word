@@ -92,11 +92,7 @@ class _ExamPageState extends State<ExamPage> with SingleTickerProviderStateMixin
       onTap: (){
         FocusScope.of(context).requestFocus(new FocusNode());
       },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('문제풀이'),
-        ),
-        body: Container(
+      child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -141,7 +137,6 @@ class _ExamPageState extends State<ExamPage> with SingleTickerProviderStateMixin
               ],
             )
         ),
-      ),
     );
   }
 }

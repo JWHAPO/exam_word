@@ -59,7 +59,7 @@ class ResultPage extends StatelessWidget {
                       },
                       color: Colors.white,
                       textColor: Colors.black87,
-                      child: Text("다시하기",style: TextStyle(fontSize: 18)),
+                      child: Text("Home",style: TextStyle(fontSize: 18)),
                     ),
                   ],
                 ),

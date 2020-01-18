@@ -1,3 +1,4 @@
+import 'package:exam/ui/exam.dart';
 import 'package:flutter/material.dart';
 import 'package:exam/util/route.dart';
 import 'package:exam/util/const.dart';
@@ -134,8 +135,10 @@ class _MyHomePageState extends State<MyHomePage>{
                 title: Text('금 주의 단어퀴즈', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),),
                 leading: Icon(Icons.note),
                 onTap: (){
+                  setState(() {
+                    body = ExamPage();
+                  });
                   Navigator.pop(context);
-                  Navigator.pushNamed(context, 'exam');
                 },
               ),
               ListTile(
