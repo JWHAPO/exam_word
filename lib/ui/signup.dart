@@ -91,8 +91,9 @@ class SignUpPage extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: RaisedButton(
                     onPressed: (){
-                      if(_pwConfirmTextController.value.text == ''){
-
+                      if(_pwConfirmTextController.value.text.length<=4){
+                        Scaffold.of(context)
+                            .showSnackBar(SnackBar(content: Text("비밀번호가 너무 짧습니다.")));
                       }
                     },
                     color: Theme.of(context).accentColor,
