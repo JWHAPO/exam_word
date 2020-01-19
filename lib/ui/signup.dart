@@ -5,7 +5,7 @@ class SignUpPage extends StatelessWidget {
   final TextEditingController _pwTextController = new TextEditingController();
   final TextEditingController _pwConfirmTextController = new TextEditingController();
   final TextEditingController _nameConfirmTextController = new TextEditingController();
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,9 @@ class SignUpPage extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: RaisedButton(
                     onPressed: (){
+                      if(_pwConfirmTextController.value.text == ''){
 
+                      }
                     },
                     color: Theme.of(context).accentColor,
                     child: Text('가입하기', style: TextStyle(fontFamily: 'NanumGothic-ExtraBold', fontSize: 14.0, color: Colors.white), ),
