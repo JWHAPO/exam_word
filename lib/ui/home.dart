@@ -89,8 +89,6 @@ class _HomePageState extends State<HomePage> {
                 listTeachers[currentPage]['name'],textAlign: TextAlign.center,style: TextStyle(fontSize: 20),
               ),
             )
-
-
           ],
         )
     );
