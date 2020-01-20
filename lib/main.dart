@@ -5,6 +5,7 @@ import 'package:exam/util/const.dart';
 import 'package:exam/util/mytheme.dart';
 import 'package:exam/ui/note.dart';
 import 'package:exam/ui/notice.dart';
+import 'package:exam/ui/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,38 +39,7 @@ class _MyHomePageState extends State<MyHomePage>{
   void initState() {
     super.initState();
 
-    body = homeBody();
-  }
-
-
-  Widget homeBody(){
-    return Container(
-        padding: EdgeInsets.only(left: 20.0, right: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              height: 40.0,
-            ),
-            RichText(
-              text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(text: '7월 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),),
-                    TextSpan(text: '퀴즈왕 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                  ]
-              ),
-            ),
-            RichText(
-              text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(text: '손지환 ', style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                    TextSpan(text: 'A반 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                  ]
-              ),
-            )
-          ],
-        )
-    );
+    body = HomePage();
   }
 
   @override
@@ -126,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage>{
                 leading: Icon(Icons.home),
                 onTap: (){
                   setState(() {
-                    body = homeBody();
+                    body = HomePage();
                   });
                   Navigator.pop(context);
                 },
