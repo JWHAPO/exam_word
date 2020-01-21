@@ -1,6 +1,6 @@
-import 'package:exam/model/notice.dart';
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 const SCALE_FRACTION = 0.7;
 const FULL_SCALE = 1.0;
@@ -14,11 +14,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double viewPortFraction = 0.5;
   PageController pageController;
-  int currentPage = 0;
+  int currentPage = 2;
 
   List<Map<String, String>> listTeachers = [
-    {'image':"", 'name':""},
-    {'image':"", 'name':""},
+    {'image':"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCIevdnktXKRDigFjqvR80GP7b8jqNaSszjJ4idqh1B6zz8LWX&s", 'name':"Lady Gaga"},
+    {'image':"https://i.ytimg.com/vi/yURRmWtbTbo/maxresdefault.jpg", 'name':"michael jackson"},
+    {'image':"https://pds.joins.com/jmnet/koreajoongangdaily/_data/photo/2018/08/13185643.jpg", 'name':"김태희"},
+    {'image':"https://pds.joins.com/jmnet/koreajoongangdaily/_data/photo/2018/08/13185643.jpg", 'name':"김태희"},
+    {'image':"https://pds.joins.com/jmnet/koreajoongangdaily/_data/photo/2018/08/13185643.jpg", 'name':"김태희"},
   ];
 
   double page = 2.0;
@@ -58,6 +61,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 40.0,
             ),
+            Text('강사소개',style: Theme.of(context).textTheme.title,),
             Container(
               height: PAGER_HEIGHT,
               child: NotificationListener<ScrollNotification>(
@@ -83,12 +87,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
+            Align(
+              alignment: Alignment.center,
               child: Text(
-                listTeachers[currentPage]['name'],textAlign: TextAlign.center,style: TextStyle(fontSize: 20),
+                listTeachers[currentPage]['name'],style: TextStyle(fontSize: 20),
               ),
-            )
+            ),
           ],
         )
     );
@@ -105,7 +109,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 4,
           clipBehavior: Clip.antiAlias,
           shape: CircleBorder(side: BorderSide(color: Colors.grey.shade200, width: 3)),
-          child: Image.asset(
+          child: Image.network(
             image,
             fit: BoxFit.cover,
           ),
