@@ -71,8 +71,10 @@ class _HomePageState extends State<HomePage> {
                       page = pageController.page;
                     });
                   }
+                  return true;
                 },
                 child: PageView.builder(
+                  controller: pageController,
                   onPageChanged: (pos){
                     setState(() {
                       currentPage = pos;
