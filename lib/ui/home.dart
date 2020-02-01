@@ -107,13 +107,19 @@ class _HomePageState extends State<HomePage> {
         margin: EdgeInsets.only(bottom: 10),
         height: PAGER_HEIGHT * scale,
         width: PAGER_HEIGHT * scale,
-        child: Card(
-          elevation: 4,
-          clipBehavior: Clip.antiAlias,
-          shape: CircleBorder(side: BorderSide(color: Colors.grey.shade200, width: 3)),
-          child: Image.network(
-            image,
-            fit: BoxFit.cover,
+        child: GestureDetector(
+          onTap: (){
+            Scaffold.of(context)
+                .showSnackBar(SnackBar(content: Text("강사 클릭")));
+          },
+          child: Card(
+            elevation: 4,
+            clipBehavior: Clip.antiAlias,
+            shape: CircleBorder(side: BorderSide(color: Colors.grey.shade200, width: 3)),
+            child: Image.network(
+              image,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),
