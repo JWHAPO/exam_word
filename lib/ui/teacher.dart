@@ -17,7 +17,11 @@ class TeacherPage extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               ),
-            )
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text('', style: Theme.of(context).textTheme.body1,)
           ],
         ),
       ),
