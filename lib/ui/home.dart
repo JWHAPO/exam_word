@@ -109,8 +109,7 @@ class _HomePageState extends State<HomePage> {
         width: PAGER_HEIGHT * scale,
         child: GestureDetector(
           onTap: (){
-            Scaffold.of(context)
-                .showSnackBar(SnackBar(content: Text("강사 클릭")));
+            Navigator.pushNamed(context, 'teacher');
           },
           child: Card(
             elevation: 4,
