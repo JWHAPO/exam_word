@@ -1,15 +1,24 @@
 import 'package:exam/model/note.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:exam/state/note_state.dart';
 
 class NotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        itemCount: 0,
-        itemBuilder: (BuildContext context, int index){
-          return itemNote(null, context);
-        },
+    final NoteState noteState = Provider.of<NoteState>(context);
+
+    if(noteState.listNotes == null) noteState.getNotes();
+
+    return ChangeNotifierProvider<NoteState>.value(
+      value: NoteState(),
+      child: Container(
+        child: ListView.builder(
+          itemCount: noteState.listNotes.length,
+          itemBuilder: (BuildContext context, int index){
+            return itemNote(noteState.listNotes[index], context);
+          },
+        ),
       ),
     );
   }
