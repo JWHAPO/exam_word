@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:exam/model/user.dart';
 
 const SCALE_FRACTION = 0.7;
 const FULL_SCALE = 1.0;
@@ -109,7 +110,7 @@ class _HomePageState extends State<HomePage> {
         width: PAGER_HEIGHT * scale,
         child: GestureDetector(
           onTap: (){
-            Navigator.pushNamed(context, 'teacher');
+            Navigator.pushNamed(context, 'teacher',arguments: User(0, "", "", "", "", "", image, DateTime.now()));
           },
           child: Card(
             elevation: 4,

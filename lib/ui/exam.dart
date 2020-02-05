@@ -7,7 +7,7 @@ class ExamPage extends StatefulWidget {
 }
 
 class _ExamPageState extends State<ExamPage> with SingleTickerProviderStateMixin{
-  final int changeTime = 1000;
+  final int changeTime = 3000;
   bool isStart = false;
   String stage = '';
   String word='';

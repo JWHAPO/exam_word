@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:exam/model/user.dart';
+
 class TeacherPage extends StatelessWidget {
+
+  final User user;
+
+  TeacherPage({Key key,@required this.user}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +21,7 @@ class TeacherPage extends StatelessWidget {
               child: Hero(
                 tag: "123",
                 child: Image.network(
-                  "https://pds.joins.com/jmnet/koreajoongangdaily/_data/photo/2018/08/13185643.jpg",
+                  user.profileImg,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -27,4 +35,5 @@ class TeacherPage extends StatelessWidget {
       ),
     );
   }
+
 }

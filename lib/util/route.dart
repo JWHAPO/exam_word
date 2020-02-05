@@ -9,6 +9,7 @@ import 'package:exam/ui/signup.dart';
 import 'package:exam/ui/splash.dart';
 import 'package:exam/ui/exam.dart';
 import 'package:exam/ui/teacher.dart';
+import 'package:exam/model/user.dart';
 
 class Router{
   static Route<dynamic> generateRoute(RouteSettings settings){
@@ -26,7 +27,7 @@ class Router{
       case 'exam':
         return FadeRoute(page: ExamPage());
       case 'teacher':
-        return FadeRoute(page: TeacherPage());
+        return FadeRoute(page: TeacherPage(user: settings.arguments,));
       case 'result':
         if (settings.arguments is Map) {
           return FadeRoute(page: ResultPage(data: settings.arguments));
