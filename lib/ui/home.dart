@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:exam/model/user.dart';
+import 'package:exam/model/teacher.dart';
 
 const SCALE_FRACTION = 0.7;
 const FULL_SCALE = 1.0;
@@ -110,7 +111,11 @@ class _HomePageState extends State<HomePage> {
         width: PAGER_HEIGHT * scale,
         child: GestureDetector(
           onTap: (){
-            Navigator.pushNamed(context, 'teacher',arguments: User(0, "", "", "", "", "", image, DateTime.now()));
+            var map = new Map();
+            map['user'] = User(0, "", "", "", "", "", image, DateTime.now());
+            map['teacher'] = Teacher(0, 0, "This is My Career", "This is Remark", DateTime.now());
+
+            Navigator.pushNamed(context, 'teacher',arguments: map);
           },
           child: Card(
             elevation: 4,

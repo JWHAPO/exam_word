@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:exam/model/user.dart';
+import 'package:exam/model/teacher.dart';
 
 class TeacherPage extends StatelessWidget {
 
-  final User user;
+  final Map data;
+  User user;
+  Teacher teacher;
 
-  TeacherPage({Key key,@required this.user}) : super(key: key);
+  TeacherPage({Key key,@required this.data}) : super(key: key){
+    user = data['user'];
+    teacher = data['teacher'];
+  }
 
 
   @override
@@ -18,18 +24,23 @@ class TeacherPage extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 300,
-              child: Hero(
-                tag: "123",
-                child: Image.network(
-                  user.profileImg,
-                  fit: BoxFit.contain,
-                ),
+              child: Image.network(
+                user.profileImg,
+                fit: BoxFit.contain,
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
-            Text('', style: Theme.of(context).textTheme.body1,)
+            Text(user.name, style: Theme.of(context).textTheme.title,),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(teacher.career, style: Theme.of(context).textTheme.body1,),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(teacher.remark, style: Theme.of(context).textTheme.body1,),
           ],
         ),
       ),
