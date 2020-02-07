@@ -4,7 +4,6 @@ import 'package:exam/util/route.dart';
 import 'package:exam/util/const.dart';
 import 'package:exam/util/mytheme.dart';
 import 'package:exam/ui/note.dart';
-import 'package:exam/ui/notice.dart';
 import 'package:exam/ui/home.dart';
 
 void main() => runApp(MyApp());
@@ -126,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage>{
                 leading: Icon(Icons.notifications_none),
                 onTap: (){
                   setState(() {
-                    body = NoticePage();
+                    body = NotePage();
                   });
                   Navigator.pop(context);
                 },

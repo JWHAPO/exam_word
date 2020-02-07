@@ -27,6 +27,13 @@ class NotePage extends StatelessWidget {
     return ListTile(
       title: Text(note.title),
       subtitle: Text(note.contents),
+      onTap: (){
+        onTapped(note);
+      },
     );
+  }
+
+  void onTapped(Note note){
+
   }
 }
