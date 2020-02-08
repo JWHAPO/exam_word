@@ -5,14 +5,10 @@ import 'package:exam/model/teacher.dart';
 
 class TeacherPage extends StatelessWidget {
 
-  final Map data;
-  User user;
-  Teacher teacher;
+  final User user;
+  final Teacher teacher;
 
-  TeacherPage({Key key,@required this.data}) : super(key: key){
-    user = data['user'];
-    teacher = data['teacher'];
-  }
+  TeacherPage({Key key, @required this.user, @required this.teacher}) : super(key: key);
 
 
   @override

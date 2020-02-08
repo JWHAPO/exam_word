@@ -27,7 +27,8 @@ class Router{
       case 'exam':
         return FadeRoute(page: ExamPage());
       case 'teacher':
-        return FadeRoute(page: TeacherPage(data: settings.arguments,));
+        Map map = settings.arguments;
+        return FadeRoute(page: TeacherPage(user: map['user'], teacher: map['teacher'],));
       case 'result':
         if (settings.arguments is Map) {
           return FadeRoute(page: ResultPage(data: settings.arguments));
