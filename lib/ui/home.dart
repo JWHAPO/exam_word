@@ -36,69 +36,75 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.only(left: 20.0, right: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              height: 40.0,
-            ),
-            RichText(
-              text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(text: '7월 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),),
-                    TextSpan(text: '퀴즈왕 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                  ]
+    return SingleChildScrollView(
+      child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                height: 40.0,
               ),
-            ),
-            RichText(
-              text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(text: '손지환 ', style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                    TextSpan(text: 'A반 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                  ]
-              ),
-            ),
-            SizedBox(
-              height: 40.0,
-            ),
-            Text('강사소개',style: Theme.of(context).textTheme.title,),
-            Container(
-              height: PAGER_HEIGHT,
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (ScrollNotification notification){
-                  if(notification is ScrollUpdateNotification){
-                    setState(() {
-                      page = pageController.page;
-                    });
-                  }
-                  return true;
-                },
-                child: PageView.builder(
-                  controller: pageController,
-                  onPageChanged: (pos){
-                    setState(() {
-                      currentPage = pos;
-                    });
-                  },
-                  physics: BouncingScrollPhysics(),
-                  itemCount: listTeachers.length,
-                  itemBuilder: (context, index){
-                    final scale = max(SCALE_FRACTION, (FULL_SCALE - (index - page).abs()) + viewPortFraction);
-                    return circleOffer(listTeachers[index]['image'], scale);
-                  },
+              RichText(
+                text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(text: '7월 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),),
+                      TextSpan(text: '퀴즈왕 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black),),
+                    ]
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                listTeachers[currentPage]['name'],style: TextStyle(fontSize: 20),
+              RichText(
+                text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(text: '손지환 ', style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.black),),
+                      TextSpan(text: 'A반 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey),),
+                    ]
+                ),
               ),
-            ),
-          ],
-        )
+              SizedBox(
+                height: 40.0,
+              ),
+              Text('강사소개',style: Theme.of(context).textTheme.title,),
+              Container(
+                height: PAGER_HEIGHT,
+                child: NotificationListener<ScrollNotification>(
+                  onNotification: (ScrollNotification notification){
+                    if(notification is ScrollUpdateNotification){
+                      setState(() {
+                        page = pageController.page;
+                      });
+                    }
+                    return true;
+                  },
+                  child: PageView.builder(
+                    controller: pageController,
+                    onPageChanged: (pos){
+                      setState(() {
+                        currentPage = pos;
+                      });
+                    },
+                    physics: BouncingScrollPhysics(),
+                    itemCount: listTeachers.length,
+                    itemBuilder: (context, index){
+                      final scale = max(SCALE_FRACTION, (FULL_SCALE - (index - page).abs()) + viewPortFraction);
+                      return circleOffer(listTeachers[index]['image'], scale);
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50.0,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    listTeachers[currentPage]['name'],style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+              Text('학원소개',style: Theme.of(context).textTheme.title,),
+              Text('좋은 학원입니다. 좋은 학원입니다. 이 학원에서는 좋은 커리큘럼과 훌륭한 강사진을 보유하고 있습니다.',style: Theme.of(context).textTheme.body1,),
+            ],
+          )
+      ),
     );
   }
 
