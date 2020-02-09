@@ -8,7 +8,18 @@ class NoteDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Text(note.title,style: Theme.of(context).textTheme.title,),
+          Divider(
+            height: 2.0,
+            color: Colors.grey,
+          ),
+          Text(note.contents,style: Theme.of(context).textTheme.body1,)
+        ],
+      ),
+    );
   }
 
 }
