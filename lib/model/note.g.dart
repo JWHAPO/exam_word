@@ -12,7 +12,6 @@ Note _$NoteFromJson(Map<String, dynamic> json) {
     json['regDate'] == null ? null : DateTime.parse(json['regDate'] as String),
     json['title'] as String,
     json['contents'] as String,
-    json['isChecked'] as String,
   );
 }
 
@@ -21,5 +20,4 @@ Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
       'regDate': instance.regDate?.toIso8601String(),
       'title': instance.title,
       'contents': instance.contents,
-      'isChecked': instance.isChecked,
     };

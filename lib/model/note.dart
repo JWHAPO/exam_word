@@ -8,9 +8,8 @@ class Note{
   DateTime regDate;
   String title;
   String contents;
-  String isChecked;
 
-  Note(this.noteId, this.regDate, this.title, this.contents, this.isChecked);
+  Note(this.noteId, this.regDate, this.title, this.contents);
 
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
   Map<String, dynamic> toJson() => _$NoteToJson(this);
