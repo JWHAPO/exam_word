@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:exam/model/user.dart';
 import 'package:exam/model/teacher.dart';
+import 'package:exam/util/const.dart';
 
 class TeacherPage extends StatelessWidget {
 
@@ -14,6 +15,9 @@ class TeacherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(Const.APP_NAME),
+      ),
       body: Container(
         child: Column(
           children: <Widget>[
