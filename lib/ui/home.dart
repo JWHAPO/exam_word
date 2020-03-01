@@ -44,26 +44,35 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 40.0,
               ),
-              RichText(
-                text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(text: '7월 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.blueAccent),),
-                      TextSpan(text: '퀴즈왕 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                    ]
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: RichText(
+                  text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(text: '7월 ', style: Theme.of(context).textTheme.title,),
+                        TextSpan(text: '퀴즈왕 ', style: Theme.of(context).textTheme.title,),
+                      ]
+                  ),
                 ),
               ),
-              RichText(
-                text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(text: '손지환 ', style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                      TextSpan(text: 'A반 ', style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    ]
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: RichText(
+                  text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(text: '손지환 ', style: Theme.of(context).textTheme.body1,),
+                        TextSpan(text: 'A반 ', style: Theme.of(context).textTheme.body1,),
+                      ]
+                  ),
                 ),
               ),
               SizedBox(
                 height: 40.0,
               ),
-              Text('강사소개',style: Theme.of(context).textTheme.title,),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text('강사소개',style: Theme.of(context).textTheme.title,),
+              ),
               Container(
                 height: PAGER_HEIGHT,
                 child: NotificationListener<ScrollNotification>(
@@ -100,8 +109,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              Text('학원소개',style: Theme.of(context).textTheme.title,),
-              Text('좋은 학원입니다. 좋은 학원입니다. 이 학원에서는 좋은 커리큘럼과 훌륭한 강사진을 보유하고 있습니다.',style: Theme.of(context).textTheme.body1,),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text('학원소개',style: Theme.of(context).textTheme.title,),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text('좋은 학원입니다. 좋은 학원입니다. 이 학원에서는 좋은 커리큘럼과 훌륭한 강사진을 보유하고 있습니다.',style: Theme.of(context).textTheme.body1,),
+              ),
             ],
           )
       ),
